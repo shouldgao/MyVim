@@ -186,9 +186,9 @@ let g:ycm_semantic_triggers =  {
 			\ 'cs,lua,javascript': ['re!\w{2}'],
 			\ }
 " YCM基于语义的声明/定义跳转快捷键
-nnoremap <leader>lc :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>sc :YcmCompleter GoToDeclaration<CR>
 " 只能是 #include 或已打开的文件
-nnoremap <leader>lf :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>sf :YcmCompleter GoToDefinition<CR>
 " 代码静态检查
 let g:ycm_show_diagnostics_ui=1
 "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
