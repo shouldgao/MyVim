@@ -13,6 +13,19 @@ filetype on
 " 根据侦测到的不同类型加载对应的插件
 filetype plugin on
 
+" 依次遍历子窗口
+nnoremap nw <C-W><C-W>
+" 跳转至右方的窗口
+nnoremap <Leader>lw <C-W>l
+" 跳转至左方的窗口
+nnoremap <Leader>hw <C-W>h
+" 跳转至上方的子窗口
+nnoremap <Leader>kw <C-W>k
+" 跳转至下方的子窗口
+nnoremap <Leader>jw <C-W>j
+" 定义快捷键在结对符之间跳转
+nmap <Leader>M %
+
 " 开启实时搜索功能
 set incsearch
 " 搜索时大小写不敏感
@@ -29,6 +42,8 @@ set number
 " 高亮显示当前行/列
 set cursorline
 set cursorcolumn
+highlight CursorLine   cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
+highlight CursorColumn cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
 " 高亮显示搜索结果
 set hlsearch
 
@@ -77,6 +92,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'fholgado/minibufexpl.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'dyng/ctrlsf.vim'
+Plugin 'derekwyatt/vim-fswitch'
+Plugin 'scrooloose/nerdcommenter'
 " 插件列表结束
 call vundle#end()
 filetype plugin indent on
@@ -154,9 +171,9 @@ nmap <Leader>tp :tprevious<CR>
 ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " YCM 补全菜单配色
 " 菜单
-highlight Pmenu ctermfg=2 ctermbg=3 guifg=#005f87 guibg=#EEE8D5
+highlight Pmenu ctermfg=56 ctermbg=255 guifg=#005f87 guibg=#EEE8D5
 " 选中项
-highlight PmenuSel ctermfg=2 ctermbg=3 guifg=#AFD700 guibg=#106900
+highlight PmenuSel ctermfg=56 ctermbg=darkgrey guifg=#AFD700 guibg=#106900
 " 补全功能在注释中同样有效
 let g:ycm_complete_in_comments=1
 " 允许 vim 加载 .ycm_extra_conf.py 文件，不再提示
@@ -164,8 +181,8 @@ let g:ycm_confirm_extra_conf=0
 " 开启 YCM 标签补全引擎
 let g:ycm_collect_identifiers_from_tags_files=1
 " 引入 C++ 标准库tags
-set tags+=/usr/include/c++/7/stdcpp7.tags
-set tags+=/usr/include/sys.tags
+"set tags+=/usr/include/c++/7/stdcpp7.tags
+"set tags+=/usr/include/sys.tags
 " YCM 集成 OmniCppComplete 补全引擎，设置其快捷键
 inoremap <leader>; <C-x><C-o>
 " 补全内容不以分割子窗口形式出现，只显示补全列表
@@ -237,6 +254,12 @@ map <Leader>bl :MBEToggle<cr>
 ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " 使用 ctrlsf.vim 插件在工程内全局查找光标所在关键字，设置快捷键。快捷键速记法：search in project
 nnoremap <Leader>sp :CtrlSF<CR>
+"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+
+">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+" *.cpp 和 *.h 间切换
+nmap <silent> <Leader>sw :FSHere<cr>
 "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 
